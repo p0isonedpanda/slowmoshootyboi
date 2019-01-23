@@ -5,9 +5,6 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
-    // Various controllers the player needs access to
-	TimeController tc;
-
 	public float speed = 5.0f;
 	public float fireRate = 0.1f;
 	public UnityEvent Moving, Standing;
@@ -19,7 +16,6 @@ public class PlayerController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		tc = GameObject.Find("TimeController").GetComponent<TimeController>();
 
 		if (Moving == null)
 		    Moving = new UnityEvent();
@@ -30,11 +26,20 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+		if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+		{
 		    Moving.Invoke();
-		else
-		    Standing.Invoke();
+		    rb.transform.Translate(new Vector2( (Input.GetAxisRaw("Horizontal") * speed) * Time.deltaTime, (Input.GetAxisRaw("Vertical") * speed) * Time.deltaTime ));
+		}
+		else Standing.Invoke();
 
-		rb.transform.Translate(new Vector2( (Input.GetAxis("Horizontal") * speed) * Time.deltaTime, (Input.GetAxis("Vertical") * speed) * Time.deltaTime ));
+        fireTimer += Time.deltaTime;
+
+		if (Input.GetButton("Fire1") && fireTimer >= fireRate)
+		{
+			fireTimer = 0.0f;
+			Moving.Invoke();
+			Instantiate(projectile, transform.position, transform.rotation);
+		}
 	}
 }

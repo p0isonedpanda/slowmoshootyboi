@@ -23,15 +23,21 @@ public class CameraController : MonoBehaviour
 	void Update ()
 	{
 		cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, 5.0f, ref refVel, 1.0f);
-		transform.position = Vector3
-		    .Lerp(transform.position, new Vector3(player.position.x, player.position.y, player.position.z - 10), t);
+		transform.position = Vector3.Lerp
+		(
+			transform.position,
+			new Vector3(player.position.x, player.position.y, player.position.z - 10),
+			t
+		);
 	}
 
+    // Called when moving
 	void SetCameraInterpolation ()
 	{
 		t = 0.2f;
 	}
 
+    // Called when standing
 	void ResetCameraInterpolation ()
 	{
 		t = 0.02f;

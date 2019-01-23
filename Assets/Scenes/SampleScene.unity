@@ -329,7 +329,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.0786322
+  m_Radius: 0.5787695
 --- !u!50 &891382761
 Rigidbody2D:
   serializedVersion: 4
@@ -361,9 +361,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae05d3778da9da4439a194d6a79d403b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  fireRate: 0.1
-  projectile: {fileID: 0}
+  speed: 5
+  fireRate: 0.25
+  Moving:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  Standing:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  projectile: {fileID: 1354234601015074, guid: 98b01eb0c3924a043af15c150b542a16, type: 2}
   blood: {fileID: 0}
 --- !u!1 &1056432461
 GameObject:

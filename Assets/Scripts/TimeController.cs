@@ -6,6 +6,8 @@ public class TimeController : MonoBehaviour
 {
 	PlayerController pc;
 
+	float timeScale = 0.05f;
+
     void Start ()
 	{
 		pc = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -17,19 +19,19 @@ public class TimeController : MonoBehaviour
 	void Update ()
 	{
 		// Magic stuff that make the time go slow
-		Time.timeScale = Mathf.Lerp(Time.timeScale, 0.05f, 0.2f);
+		Time.timeScale = Mathf.Lerp(Time.timeScale, timeScale, 0.2f);
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
 	}
 
+    // Called when moving
 	void SetTimescale ()
 	{
-		Time.timeScale = 1.0f;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+		timeScale = 1.0f;
 	}
 
+    // Called when standing
 	void ResetTimescale ()
 	{
-		Time.timeScale = 0.05f;
-        Time.fixedDeltaTime = Time.timeScale * 0.02f;
+		timeScale = 0.05f;
 	}
 }
