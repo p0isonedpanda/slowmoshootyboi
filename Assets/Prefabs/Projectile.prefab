@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 82815386326533140}
   - component: {fileID: 50994764610889822}
   - component: {fileID: 114983273584885692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.70478845
+  m_Radius: 0.82
 --- !u!82 &82815386326533140
 AudioSource:
   m_ObjectHideFlags: 0

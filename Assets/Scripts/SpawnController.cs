@@ -37,7 +37,7 @@ public class SpawnController : MonoBehaviour
         }
     }
 
-    Vector3 RandomRect(Vector3 center, float width, float height)
+    Vector3 RandomRect (Vector3 center, float width, float height)
     {
         // Select whether we wanna pick from the left(0), right(1), top(2), or bottom(3)
         int side = Random.Range(0, 4);

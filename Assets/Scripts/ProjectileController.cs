@@ -26,4 +26,13 @@ public class ProjectileController : MonoBehaviour
 	{
 		rb.MovePosition((Vector2)transform.position + (dir * speed * Time.deltaTime));
 	}
+
+	void OnTriggerEnter2D (Collider2D col)
+	{
+		if (col.tag == "Enemy")
+		{
+			Destroy(gameObject);
+			col.gameObject.GetComponent<EnemyController>().Destroy();
+		}
+	}
 }

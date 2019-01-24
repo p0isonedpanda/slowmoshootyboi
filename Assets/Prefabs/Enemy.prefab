@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6947993514378780570}
   - component: {fileID: 6947993514378780571}
   - component: {fileID: 6947993514378780568}
-  m_Layer: 0
+  - component: {fileID: 7038373758399870574}
+  m_Layer: 9
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  deathParticles: {fileID: 1269319515686137985, guid: 73f3e0dc9aac69e55ad40071e50c26f6,
+    type: 3}
 --- !u!50 &6947993514378780568
 Rigidbody2D:
   serializedVersion: 4
@@ -113,5 +116,21 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &7038373758399870574
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947993514378780569}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.61

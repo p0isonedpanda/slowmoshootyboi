@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    void Start ()
     {
         Player = GameObject.Find("Player");
     }
