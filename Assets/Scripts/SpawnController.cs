@@ -8,7 +8,7 @@ public class SpawnController : MonoBehaviour
     int round = 1; // Use this to indicate how difficult the next wave of enemies will be
     Transform playerPos;
     [SerializeField]
-    float spawnDelay = 0.5f;
+    float spawnDelay = 3.0f;
     [SerializeField]
     int spawnCount = 2;
     [SerializeField]
