@@ -16,13 +16,16 @@ public class PlayerController : MonoBehaviour
     float fireTimer = 0.0f;
     bool ready;
 
+    [SerializeField]
+    Color playerColor;
+
     Rigidbody2D rb;
-    Animator anim;
+    SpriteRenderer sprite;
 
     void Start()
     {
 	rb = GetComponent<Rigidbody2D>();
-	anim = GetComponent<Animator>();
+	sprite = GetComponent<SpriteRenderer>();
 
 	if (Moving == null)
 	    Moving = new UnityEvent();
@@ -41,13 +44,21 @@ public class PlayerController : MonoBehaviour
 	else Standing.Invoke();
 
         fireTimer += Time.deltaTime;
-	if (fireTimer >= fireRate) anim.SetBool("ready", true);
+	AnimateReady(fireTimer >= fireRate);
 
 	if (Input.GetButton("Fire1") && fireTimer >= fireRate)
 	{
 	    fireTimer = 0.0f;
-	    anim.SetBool("ready", false);
 	    Instantiate(projectile, transform.position, transform.rotation);
 	}
+    }
+
+    void AnimateReady (bool ready)
+    {
+        Color col;
+        if (ready) col = Color.Lerp(sprite.color, playerColor, 0.1f);
+        else col = Color.Lerp(sprite.color, Color.white, 0.1f);
+
+        sprite.color = col;
     }
 }

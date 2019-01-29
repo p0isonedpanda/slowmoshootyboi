@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 891382761}
   - component: {fileID: 891382760}
   - component: {fileID: 891382762}
-  - component: {fileID: 891382763}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -352,7 +351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: afaf2892971570c4c997c1fee6035efc, type: 3}
-  m_Color: {r: 0.29394245, g: 0, b: 0.3490566, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -440,25 +439,7 @@ MonoBehaviour:
   projectile: {fileID: 1354234601015074, guid: 98b01eb0c3924a043af15c150b542a16, type: 3}
   blood: {fileID: 0}
   fireRate: 0.25
---- !u!95 &891382763
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 891382757}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5798f55fc349d61d98e7cd7f53dc3d0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  playerColor: {r: 0.29411766, g: 0, b: 0.34901962, a: 1}
 --- !u!1 &1056432461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,7 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77c9adc160f28571af098d9c067ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 0.5
+  spawnDelay: 3
   spawnCount: 2
   enemy: {fileID: 6947993514378780569, guid: fded7ba893b4949c28e343c7a6457f71, type: 3}
 --- !u!4 &1786745413
