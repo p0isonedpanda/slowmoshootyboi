@@ -9,9 +9,9 @@ public class GameController : MonoBehaviour
     public static GameObject Player { get; private set; }
 
     float score;
+    bool playing = true;
     [SerializeField]
     Text scoreText;
-
 
     void Awake ()
     {
@@ -28,7 +28,20 @@ public class GameController : MonoBehaviour
 
     void Update ()
     {
+        if (!playing) return;
         score += Time.deltaTime;
         scoreText.text = score.ToString("F2");
+    }
+
+    public void EndGame()
+    {
+        // dun kill all enemy cause they know what they did >:(
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies)
+        {
+            e.GetComponent<EnemyController>().Destroy();
+        }
+
+        playing = false;
     }
 }

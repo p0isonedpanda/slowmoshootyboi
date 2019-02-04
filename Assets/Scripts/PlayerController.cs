@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public UnityEvent Moving, Standing;
+    GameController gc;
 
     public float speed = 5.0f;
     [SerializeField]
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     Color playerColor;
+    [SerializeField]
+    GameObject playerDeath;
 
     Rigidbody2D rb;
     SpriteRenderer sprite;
@@ -32,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
 	if (Standing == null)
 	    Standing = new UnityEvent();
+    
+    gc = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     void Update ()
@@ -53,6 +58,11 @@ public class PlayerController : MonoBehaviour
 	}
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy") Die();
+    }
+
     void AnimateReady (bool ready)
     {
         Color col;
@@ -60,5 +70,12 @@ public class PlayerController : MonoBehaviour
         else col = Color.Lerp(sprite.color, Color.white, 0.1f);
 
         sprite.color = col;
+    }
+
+    void Die()
+    {
+        gc.EndGame();
+        Instantiate(playerDeath, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
